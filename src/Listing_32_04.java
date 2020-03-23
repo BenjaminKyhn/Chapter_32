@@ -23,7 +23,9 @@ public class Listing_32_04 {
     // A thread for adding a penny to the account
     private static class AddAPennyTask implements Runnable{
         public void run(){
-            account.deposit(1);
+            synchronized (account) {
+                account.deposit(1);
+            }
         }
     }
 
@@ -36,7 +38,7 @@ public class Listing_32_04 {
             return balance;
         }
 
-        public synchronized void deposit(int amount){
+        public void deposit(int amount){
             int newBalance = balance + amount;
 
             // This delay is deliberately added to magnify the data-corruption problem and make it easy to see.
