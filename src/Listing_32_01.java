@@ -1,5 +1,5 @@
 public class Listing_32_01 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // Create tasks
         Runnable printA = new PrintChar('a', 100);
         Runnable printB = new PrintChar('b', 100);
